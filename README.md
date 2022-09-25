@@ -1,3 +1,7 @@
+# Fitness-Tracker
+
+Using MERN Stack to build a Fitness App to keep track of exercises.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
