@@ -11,11 +11,11 @@ app.use(cors());
 app.use(express.json());
 
 const URI = process.env.MONGODB_URL;
-mongoose.connect(URI,
-    err => {
-        if(err) throw err;
-            console.log('Connection to MongoDB failed: ' + err);
-        }
+mongoose.connect(URI
+    // err => {
+    //     if(err) throw err;
+    //         console.log('Connection to MongoDB failed: ' + err);
+    //     }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
