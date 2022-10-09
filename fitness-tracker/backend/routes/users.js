@@ -1,13 +1,13 @@
-const usersRouter = require('express');
+const usersRouter = require('express').Router();
 const User = require('../models/User');
 
-usersRouter.get('/', async (req, res) => {
+usersRouter.get('/', (req, res) => {
     User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-usersRouter.post('/', async (req, res) => {
+usersRouter.post('/add', (req, res) => {
     const username = req.body.username;
     const newUser = new User(username);
 
