@@ -2,8 +2,6 @@ const express = require('express');
 const exercisesRouter = express.Router();
 const Exercise = require('../models/Exercise');
 
-// exercisesRouter.get('/', (request, response) => response.send('Hello World'));
-
 exercisesRouter.get('/', (req, res) => {
     Exercise.find()
     .then(exercises => res.send(exercises))
@@ -26,6 +24,12 @@ exercisesRouter.post('/add', (req, res) => {
     newExercise.save()
     .then(() => res.send('Exercise added!'))
     .catch(error => res.status(400).json('Error: ' + error));
+});
+
+exercisesRouter.delete('/id', (req, res) => {
+    Exercise.findByIdAndDelete(req.params.id)
+    .then(() => res.send('Deleted exercise with id: ' + Exercise.id))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = exercisesRouter;
