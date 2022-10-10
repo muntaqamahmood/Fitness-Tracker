@@ -1,6 +1,3 @@
-// const exercisesRouter = require('express');
-// const app = exercisesRouter.Router();
-
 const express = require('express');
 const exercisesRouter = express.Router();
 const Exercise = require('../models/Exercise');
