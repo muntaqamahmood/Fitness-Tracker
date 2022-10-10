@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 import Navbar from "./Components/navbar-component";
 import ExerciseList from "./Components/exercise-list-component";
-import EditExercise from "./Components/edit-exercise-component.js";
+import EditExercise from "./Components/edit-exercise-component";
 import CreateExercise from "./Components/create-exercise-component";
-import CreateUser from "Components/create-user-component";
+import CreateUser from "./Components/create-user-component";
 
 
 function App() {
