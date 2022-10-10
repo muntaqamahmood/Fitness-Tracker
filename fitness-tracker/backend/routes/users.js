@@ -29,7 +29,7 @@ usersRouter.delete('/id', (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-usersRouter.put('/id', (req, res) => {
+usersRouter.post('/id', (req, res) => {
     User.findByIdAndUpdate(req.params.id)
     .then(() => res.send(User.username))
     .catch(err => res.status(400).json('Error: ' + err));
