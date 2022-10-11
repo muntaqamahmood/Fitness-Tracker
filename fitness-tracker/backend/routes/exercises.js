@@ -8,6 +8,12 @@ exercisesRouter.get('/', (req, res) => {
     .catch(error => res.status(400).json('Error: ' + error));
 });
 
+exercisesRouter.get('/:id', (req, res) => {
+    Exercise.findById(req.params.id)
+    .then(exercises => res.send(exercises))
+    .catch(error => res.status(400).json('Error: ' + error));
+});
+
 exercisesRouter.post('/add', (req, res) => {
     const username = req.body.username;
     const description = req.body.description;
@@ -26,9 +32,9 @@ exercisesRouter.post('/add', (req, res) => {
     .catch(error => res.status(400).json('Error: ' + error));
 });
 
-exercisesRouter.delete('/id', (req, res) => {
+exercisesRouter.delete('/:id', (req, res) => {
     Exercise.findByIdAndDelete(req.params.id)
-    .then(() => res.send('Deleted exercise with id: ' + Exercise.id))
+    .then(() => res.send('Exercise deleted!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
