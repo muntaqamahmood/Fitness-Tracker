@@ -13,14 +13,16 @@ function App() {
   // root.render(
   return (
     <BrowserRouter>
+    <div className="container">
     <Navbar />
     <br />
       <Routes>
         <Route path="/" exact element={<ExerciseList />} />
-        <Route path="/edit/:id" exact element={<EditExercise />} />
+        <Route path="/edit/:id" element={<EditExercise />} />
         <Route path="/create" element={<CreateExercise />} />
         <Route path="/user" element={<CreateUser />} />
       </Routes>
+    </div>
     </BrowserRouter>
   );
 }
