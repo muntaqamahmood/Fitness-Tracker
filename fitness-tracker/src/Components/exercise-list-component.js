@@ -16,6 +16,7 @@ const Exercise = (props) => (
         <td>
             {/* link to the edit page */}
             {/* button to delete the exercise */}
+            {/* // eslint-disable-next-line */}
             <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
         </td>
     </tr>
