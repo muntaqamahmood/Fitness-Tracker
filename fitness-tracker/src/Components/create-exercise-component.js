@@ -63,13 +63,13 @@ export default class CreateExercises extends Component {
     }
     //when description is changed, update the state
     onChangeDescription(e) {
-        this.setstate({
+        this.setState({
             description: e.target.value
         });
     }
     //when duration is changed, update the state
     onChangeDuration(e) {
-        this.setstate({
+        this.setState({
             duration: e.target.value
         });
     }
@@ -77,7 +77,7 @@ export default class CreateExercises extends Component {
     //pass in the date from a library as a parameter, 
     //"date" is a calendar that pops up
     onChangeDate(date) {
-        this.state({
+        this.setState({
             date: date
         });
     }
