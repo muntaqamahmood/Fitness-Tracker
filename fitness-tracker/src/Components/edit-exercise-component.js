@@ -23,7 +23,7 @@ export default class EditExercises extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/exercises/" + this.props.match.params.id)
+        axios.get('http://localhost:3000/exercises/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
@@ -36,7 +36,7 @@ export default class EditExercises extends Component {
                 console.log(error);
             })
             
-        axios.get("http://localhost:5000/users/")
+        axios.get('http://localhost:3000/users/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -49,25 +49,25 @@ export default class EditExercises extends Component {
     onChangeUsername(e) {
         this.setState({
             username: e.target.value
-        });
+        })
     }
     
     onChangeDescription(e) {
         this.setState({
             description: e.target.value
-        });
+        })
     }
     
     onChangeDuration(e) {
         this.setState({
             duration: e.target.value
-        });
+        })
     }
 
     onChangeDate(date) {
         this.setState({
             date: date
-        });
+        })
     }
     
     onSubmit(e) {
@@ -82,7 +82,7 @@ export default class EditExercises extends Component {
         
         console.log(exercise);
 
-        axios.post("http://localhost:5000/exercises/update/" + this.props.match.params.id, exercise)
+        axios.post('http://localhost:3000/exercises/update/' + this.props.match.params.id, exercise)
             .then(res => console.log(res.data));
 
         window.location = "/";
@@ -106,43 +106,42 @@ export default class EditExercises extends Component {
                                         key={user}
                                         defaultValue={user}>{user}
                                     </option>;
-                                }
-                                )
+                                })
                             }
                         </select>
-            </div>
-            <div className="form-group">
-                <label>Description: </label>
-                <input type="text"
-                    required
-                    className="form-control"
-                    defaultValue={this.state.description}
-                    onChange={this.onChangeDescription}
-                />
-            </div>
-            <div className="form-group">
-                <label>Duration (in minutes): </label>
-                <input type="text"
-                    className="form-control"
-                    defaultValue={this.state.duration}
-                    onChange={this.onChangeDuration}
-                />
-            </div>
-            <div className="form-group">
-                <label>Date: </label>
-                <div>
-                    <DatePicker
-                        selected={this.state.date}
-                        onChange={this.onChangeDate}
-                    />
-                </div>
-            </div>
+                    </div>
+                    <div className="form-group">
+                        <label>Description: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            defaultValue={this.state.description}
+                            onChange={this.onChangeDescription}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Duration (in minutes): </label>
+                        <input type="text"
+                            className="form-control"
+                            defaultValue={this.state.duration}
+                            onChange={this.onChangeDuration}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Date: </label>
+                        <div>
+                            <DatePicker
+                                selected={this.state.date}
+                                onChange={this.onChangeDate}
+                            />
+                        </div>
+                    </div>
 
-            <div className="form-group">
-                <input type="submit" defaultValue="Edit Exercise Log" className="btn btn-primary" />
+                    <div className="form-group">
+                        <input type="submit" defaultValue="Edit Exercise Log" className="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
         )
     }
 }

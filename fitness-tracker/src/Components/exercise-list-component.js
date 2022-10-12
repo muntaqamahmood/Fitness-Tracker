@@ -34,7 +34,7 @@ export default class ExercisesList extends Component {
 
     componentDidMount() {
         //get the list of exercises from the database
-        axios.get('http://localhost:5000/exercises/')
+        axios.get('http://localhost:3000/exercises/')
             .then(response => {
                 //get all the fields of each exercise from the database 
                 //and set the state of exercises to the list of exercises
@@ -48,7 +48,7 @@ export default class ExercisesList extends Component {
     //when delete button is clicked, delete the exercise from the database
     deleteExercise(id) {
         //delete the exercise with id from the database
-        axios.delete('http://localhost:5000/exercises/' + id)
+        axios.delete('http://localhost:3000/exercises/' + id)
             //then is a promise that returns a response
             .then(res => console.log(res.data));
         
