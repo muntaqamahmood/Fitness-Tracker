@@ -30,7 +30,7 @@ export default class CreateExercises extends Component {
     //React lifecycle method that is called right before anything is displayed on the page
     componentDidMount() {
         //get the list of users from the database
-        axios.get('http://localhost:3000/users/')
+        axios.get('http://localhost:5000/users/')
             //then is a promise that returns a response
             .then(response => {
                 //if there are users in the database
@@ -98,7 +98,7 @@ export default class CreateExercises extends Component {
         console.log(exercise);
 
         //send the exercise object to the backend
-        axios.post('http://localhost:3000/exercises/add', exercise)
+        axios.post('http://localhost:5000/exercises/add', exercise)
             .then(res => console.log(res.data));
 
 
